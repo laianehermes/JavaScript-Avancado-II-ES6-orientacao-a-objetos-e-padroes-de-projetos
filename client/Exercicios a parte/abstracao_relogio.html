@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Abstração relógio</title>
+    
+</head>
+<body>
+    
+    <script>
+        /* Classe original que nao funcionava
+        class Relogio {
+
+            constructor() {
+                this._segundos = 0;
+
+                setInterval(function () {
+                    console.log(++this._segundos);
+                  }, 1000);
+            }
+        }*/
+        
+        class Relogio {
+            constructor(){
+                this._segundos = 0;
+
+                setInterval(() => console.log(++this._segundos),1000);
+            }
+        }
+
+        var relogio = new Relogio();
+    </script>
+</body>
+</html>

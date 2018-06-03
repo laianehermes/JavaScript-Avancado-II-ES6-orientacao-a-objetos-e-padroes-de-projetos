@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Proxy e peculiaridade com getters</title>    
+</head>
+<body>
+    
+    <script>
+        let funcionario = new Proxy({email: 'abc@abc.com'}, {
+            set(target, prop, value, receiver){
+                console.log(`valor antigo: ${target[prop]}, valor novo: ${value} `);
+                return Reflect.set(target, prop, value, receiver);
+            }
+        })
+
+        funcionario.email = 'teste@teste';
+
+    </script>
+</body>
+</html>

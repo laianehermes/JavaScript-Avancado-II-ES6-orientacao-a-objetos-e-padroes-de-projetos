@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Padrão de projeto Proxy</title>    
+</head>
+<body>
+    
+    <script>
+        let proxy = new Proxy({email: 'abc@abc.com'}, {
+            get(target, prop, receiver){
+            	console.log('Armadilha aqui');	
+                return '**' + Reflect.get(target, prop, receiver) + '**';
+            }
+        })
+        console.log(proxy.email);
+    </script>
+</body>
+</html>
